@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <title>AllroundInformatik | W3.CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="./css/w3.css">
+    <link rel="stylesheet" href="./css/w3-theme-black.css">
+    <link rel="stylesheet" href="./css/font-awesome.min.css">
+
+    <style>
+        .skip a{position:absolute;left:-9999px;top:0;background:#fff;color:#000;padding:.6rem .9rem;z-index:1000}
+        .skip a:focus{left:.5rem;box-shadow:0 0 0 3px #ffd54f}
+        :focus{outline:3px solid #ffd54f;outline-offset:2px}
+        [hidden]{display:none}
+        .card{border-radius:10px}
+
+        .avatar{width:160px;height:160px;border-radius:50%;object-fit:cover}
+        .project-cover{width:100%;height:220px;object-fit:cover;display:block}
+        .card{border-radius:12px;overflow:hidden}
+        .card .w3-container{padding:16px}
+        section{scroll-margin-top:64px}
+        @media (min-width:601px){.pricing-col{display:flex}.pricing-col>ul{flex:1 1 auto}}
+        @media (max-width:600px){.w3-quarter{width:100% !important}.w3-third{width:100% !important}}
+        @media (min-width:601px) and (max-width:992px){.w3-quarter{width:50% !important}.w3-third{width:50% !important}}
+
+        .video-16by9,.map-4by3{position:relative;width:100%}
+        .video-16by9::before{content:"";display:block;padding-top:56.25%}
+        .map-4by3::before{content:"";display:block;padding-top:75%}
+        .embed-fill{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+        .hero-img{width:100%;min-height:260px;max-height:60vh;object-fit:cover}
+    </style>
+</head>
+
+<body id="myPage" class="w3-theme-l5">
+
+<nav class="skip" aria-label="Schnellzugriff">
+    <a href="#main">Zum Inhalt</a>
+    <a href="#nav">Zur Navigation</a>
+    <a href="#contact">Zum Kontakt</a>
+</nav>
+
+<nav id="mySidebar" class="w3-sidebar w3-bar-block w3-white w3-card w3-animate-left w3-xxlarge" style="display:none;z-index:2" aria-label="Seitennavigation">
+    <button onclick="w3_close()" class="w3-bar-item w3-button w3-display-topright w3-text-teal" aria-label="Seitenleiste schliessen">
+        Schliessen <i class="fa fa-remove" aria-hidden="true"></i>
+    </button>
+    <a href="#team" class="w3-bar-item w3-button">Team</a>
+    <a href="#work" class="w3-bar-item w3-button">Projekte</a>
+    <a href="#pricing" class="w3-bar-item w3-button">Preise</a>
+    <a href="#contact" class="w3-bar-item w3-button">Kontakt</a>
+</nav>
+
+<div class="w3-top" id="nav">
+    <div class="w3-bar w3-theme-d2 w3-left-align" role="navigation" aria-label="Hauptnavigation">
+        <button class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2"
+                onclick="openNav()" aria-controls="navDemo" aria-expanded="false" aria-label="Menü öffnen">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </button>
+        <a href="#" class="w3-bar-item w3-button w3-teal" aria-current="page">
+            <i class="fa fa-cogs w3-margin-right" aria-hidden="true"></i>AllroundInformatik
+        </a>
+        <a href="#team" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Team</a>
+        <a href="#work" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Projekte</a>
+        <a href="#pricing" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Preise</a>
+        <a href="#contact" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Kontakt</a>
+        <button onclick="w3_open()" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-teal" title="Schnellmenü öffnen">
+            <i class="fa fa-navicon" aria-hidden="true"></i>
+        </button>
+    </div>
+
+    <div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium">
+        <a href="#team" class="w3-bar-item w3-button">Team</a>
+        <a href="#work" class="w3-bar-item w3-button">Projekte</a>
+        <a href="#pricing" class="w3-bar-item w3-button">Preise</a>
+        <a href="#contact" class="w3-bar-item w3-button">Kontakt</a>
+    </div>
+</div>
+
+<header class="w3-display-container w3-animate-opacity" style="margin-top:46px">
+    <img src="https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=1600&auto=format&fit=crop"
+         alt="Team arbeitet in modernem Büro an Laptops"
+         class="hero-img" loading="lazy">
+    <div class="w3-container w3-display-bottomleft w3-margin-bottom">
+        <button class="w3-button w3-xlarge w3-theme w3-hover-teal"
+                aria-haspopup="dialog" aria-controls="aiModal" onclick="openModal('aiModal')">
+            Mehr über uns
+        </button>
+    </div>
+</header>
+
+<div id="aiModal" class="w3-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc" hidden>
+    <div class="w3-modal-content w3-card-4 w3-animate-top">
+        <header class="w3-container w3-teal w3-display-container">
+            <button class="w3-button w3-teal w3-display-topright" aria-label="Modal schliessen" onclick="closeModal('aiModal')">
+                <i class="fa fa-remove" aria-hidden="true"></i>
+            </button>
+            <h3 id="modal-title">AllroundInformatik</h3>
+        </header>
+        <div class="w3-container">
+            <p id="modal-desc">Wir bauen zugängliche, schnelle und schöne Weblösungen. Dieses Modal ist tastaturfähig:
+                Fokus bleibt im Dialog, ESC schliesst.</p>
+        </div>
+        <footer class="w3-container w3-right-align w3-padding">
+            <button class="w3-button w3-round" onclick="closeModal('aiModal')">Schliessen</button>
+        </footer>
+    </div>
+</div>
+
+<main id="main">
+    <section class="w3-container w3-padding-64 w3-center" id="team" aria-labelledby="team-title">
+        <h2 id="team-title">Unser Team</h2>
+        <p>Beratung, Entwicklung, Betrieb.</p>
+        <div class="w3-row"><br>
+            <article class="w3-quarter">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop" alt="Projektleiterin Sara" class="avatar w3-hover-opacity" loading="lazy">
+                <h3>Sara</h3><p>Projektleitung</p>
+            </article>
+            <article class="w3-quarter">
+                <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=400&auto=format&fit=crop" alt="Frontend-Entwickler Leo" class="avatar w3-hover-opacity" loading="lazy">
+                <h3>Leo</h3><p>Frontend</p>
+            </article>
+            <article class="w3-quarter">
+                <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=400&auto=format&fit=crop" alt="Backend-Entwickler Amir" class="avatar w3-hover-opacity" loading="lazy">
+                <h3>Amir</h3><p>Backend</p>
+            </article>
+            <article class="w3-quarter">
+                <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="UX-Designerin Kim" class="avatar w3-hover-opacity" loading="lazy">
+                <h3>Kim</h3><p>UX</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="w3-row-padding w3-padding-64 w3-theme-l1" id="work" aria-labelledby="work-title">
+        <div class="w3-quarter">
+            <h2 id="work-title">Projekte</h2>
+            <p>Ausgewählte Arbeiten. Alle Seiten sind responsive, zugänglich und sauber dokumentiert.</p>
+        </div>
+
+        <article class="w3-quarter">
+            <div class="w3-card w3-white card">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop" alt="Produktseite eines Onlineshops" class="project-cover" loading="lazy">
+                <div class="w3-container">
+                    <h3>Shop</h3><h4>UX & Frontend</h4>
+                    <p>Barrierearme Komponenten, schnelle Ladezeiten.</p>
+                </div>
+            </div>
+        </article>
+
+        <article class="w3-quarter">
+            <div class="w3-card w3-white card">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop" alt="Analytics Dashboard" class="project-cover" loading="lazy">
+                <div class="w3-container">
+                    <h3>Dashboard</h3><h4>SPA</h4>
+                    <p>Kontraste geprüft, Tastaturbedienung überall.</p>
+                </div>
+            </div>
+        </article>
+
+        <article class="w3-quarter">
+            <div class="w3-card w3-white card">
+                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1200&auto=format&fit=crop" alt="Netzwerk-Infrastruktur" class="project-cover" loading="lazy">
+                <div class="w3-container">
+                    <h3>Infra</h3><h4>Monitoring</h4>
+                    <p>Zugriff überall, selbst bei 320px Breite nutzbar.</p>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <section class="w3-row-padding w3-center w3-padding-64" id="pricing" aria-labelledby="pricing-title">
+        <h2 id="pricing-title">Preise</h2>
+        <p>Transparente Pakete. Kein Kleingedrucktes.</p><br>
+
+        <div class="w3-third w3-margin-bottom pricing-col">
+            <ul class="w3-ul w3-border w3-hover-shadow">
+                <li class="w3-theme"><p class="w3-xlarge">Basic</p></li>
+                <li class="w3-padding-16"><b>Landingpage</b></li>
+                <li class="w3-padding-16"><b>1</b> Kontaktformular</li>
+                <li class="w3-padding-16">Performance geprüft</li>
+                <li class="w3-padding-16"><h2 class="w3-wide"><i class="fa fa-usd"></i> 990</h2><span class="w3-opacity">einmalig</span></li>
+                <li class="w3-theme-l5 w3-padding-24"><button class="w3-button w3-teal w3-padding-large"><i class="fa fa-check"></i> Anfragen</button></li>
+            </ul>
+        </div>
+
+        <div class="w3-third w3-margin-bottom pricing-col">
+            <ul class="w3-ul w3-border w3-hover-shadow">
+                <li class="w3-theme-l2"><p class="w3-xlarge">Pro</p></li>
+                <li class="w3-padding-16"><b>Mehrseiten</b> + Blog</li>
+                <li class="w3-padding-16">WCAG-AA Kernkriterien</li>
+                <li class="w3-padding-16">CI-Design</li>
+                <li class="w3-padding-16"><h2 class="w3-wide"><i class="fa fa-usd"></i> 2990</h2><span class="w3-opacity">einmalig</span></li>
+                <li class="w3-theme-l5 w3-padding-24"><button class="w3-button w3-teal w3-padding-large"><i class="fa fa-check"></i> Anfragen</button></li>
+            </ul>
+        </div>
+
+        <div class="w3-third w3-margin-bottom pricing-col">
+            <ul class="w3-ul w3-border w3-hover-shadow">
+                <li class="w3-theme"><p class="w3-xlarge">Premium</p></li>
+                <li class="w3-padding-16">Webapp + API</li>
+                <li class="w3-padding-16">Barriere-Review & Audit</li>
+                <li class="w3-padding-16">Monitoring</li>
+                <li class="w3-padding-16"><h2 class="w3-wide"><i class="fa fa-usd"></i> 6990</h2><span class="w3-opacity">einmalig</span></li>
+                <li class="w3-theme-l5 w3-padding-24"><button class="w3-button w3-teal w3-padding-large"><i class="fa fa-check"></i> Anfragen</button></li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="w3-padding-64 w3-container" aria-labelledby="video-title">
+        <h2 id="video-title">Kurzvorstellung (Video)</h2>
+        <div class="w3-card w3-white w3-padding">
+            <div class="video-16by9">
+                <iframe class="embed-fill"
+                        src="https://www.youtube-nocookie.com/embed/xvFZjo5PgG0?rel=0"
+                        title="AllroundInformatik – Vorstellung"
+                        loading="lazy"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+            </div>
+            <p class="w3-text-grey">Untertitel im Player aktivierbar.</p>
+        </div>
+    </section>
+
+    <section class="w3-container w3-padding-64 w3-theme-l5" id="contact" aria-labelledby="contact-title">
+        <div class="w3-row">
+            <div class="w3-col m5">
+                <div class="w3-padding-16"><span class="w3-xlarge w3-border-teal w3-bottombar" id="contact-title">Kontakt</span></div>
+                <p><i class="fa fa-map-marker w3-text-teal w3-xlarge" aria-hidden="true"></i>&nbsp;&nbsp;Bern, CH</p>
+                <p><i class="fa fa-phone w3-text-teal w3-xlarge" aria-hidden="true"></i>&nbsp;&nbsp;+41 31 000 00 00</p>
+                <p><i class="fa fa-envelope-o w3-text-teal w3-xlarge" aria-hidden="true"></i>&nbsp;&nbsp;hello@allroundinf.ch</p>
+            </div>
+            <div class="w3-col m7">
+                <form class="w3-container w3-card-4 w3-padding-16 w3-white" action="#" novalidate aria-describedby="formhint">
+                    <p id="formhint" class="w3-small w3-text-grey">Alle Felder Pflicht. Demo sendet nicht.</p>
+                    <div class="w3-section">
+                        <label for="name">Name</label>
+                        <input id="name" class="w3-input" type="text" required maxlength="60">
+                    </div>
+                    <div class="w3-section">
+                        <label for="email">E-Mail</label>
+                        <input id="email" class="w3-input" type="email" required>
+                    </div>
+                    <div class="w3-section">
+                        <label for="msg">Nachricht</label>
+                        <textarea id="msg" class="w3-input" rows="4" required minlength="10"></textarea>
+                    </div>
+                    <div role="alert" id="form-errors" class="w3-small w3-text-red" aria-live="polite"></div>
+                    <button type="submit" class="w3-button w3-right w3-theme">Senden</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="w3-container w3-padding-64" aria-labelledby="map-title">
+        <h2 id="map-title">Standort</h2>
+        <div class="w3-card w3-white w3-padding">
+            <div class="map-4by3">
+                <iframe class="embed-fill"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2761.7803!2d7.444!3d46.948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478e39%3A0x0!2sBern!"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Karte: Bern, Schweiz"
+                        allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="w3-container w3-padding-32 w3-theme-d1 w3-center">
+    <h4>Folge uns</h4>
+    <a class="w3-button w3-large w3-teal" href="#" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+    <a class="w3-button w3-large w3-teal" href="#" title="LinkedIn"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+    <p class="w3-small">Powered by w3.css • © <span id="year"></span> AllroundInformatik</p>
+    <div style="position:relative;bottom:100px;z-index:1;" class="w3-tooltip w3-right">
+        <span class="w3-text w3-padding w3-teal w3-hide-small">Nach oben</span>
+        <a class="w3-button w3-theme" href="#"><span class="w3-xlarge"><i class="fa fa-chevron-circle-up" aria-hidden="true"></i></span></a>
+    </div>
+</footer>
+
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function w3_open(){
+        var x = document.getElementById("mySidebar");
+        x.style.width = "300px"; x.style.paddingTop = "10%"; x.style.display = "block";
+        x.querySelector('a,button').focus();
+    }
+    function w3_close(){ document.getElementById("mySidebar").style.display = "none"; }
+
+    function openNav(){
+        var x = document.getElementById("navDemo");
+        var shown = x.className.indexOf("w3-show") !== -1;
+        x.className = shown ? x.className.replace(" w3-show","") : x.className + " w3-show";
+        document.querySelector('[aria-controls="navDemo"]').setAttribute('aria-expanded', String(!shown));
+    }
+
+    const form = document.querySelector('form');
+    const ferr = document.getElementById('form-errors');
+    form.addEventListener('submit', e => {
+        let msgs = [];
+        const name = document.getElementById('name');
+        const email = document.getElementById('email');
+        const msg = document.getElementById('msg');
+        if(!name.value.trim()) msgs.push('Name angeben.');
+        if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value)) msgs.push('E-Mail prüfen.');
+        if(msg.value.trim().length < 10) msgs.push('Nachricht mindestens 10 Zeichen.');
+        if(msgs.length){ e.preventDefault(); ferr.innerHTML = msgs.join('<br>'); }
+        else { e.preventDefault(); ferr.innerHTML = '<span class="w3-text-green">Danke! (Demo, kein Versand)</span>'; }
+    });
+
+    let lastFocus=null;
+    function trap(e, modal){
+        const focusables = modal.querySelectorAll('button,[href],input,select,textarea,[tabindex]:not([tabindex="-1"])');
+        const first = focusables[0], last = focusables[focusables.length-1];
+        if(e.key === 'Tab'){
+            if(e.shiftKey && document.activeElement === first){ last.focus(); e.preventDefault(); }
+            else if(!e.shiftKey && document.activeElement === last){ first.focus(); e.preventDefault(); }
+        } else if(e.key === 'Escape'){ closeModal(modal.id); }
+    }
+    function openModal(id){
+        const modal = document.getElementById(id);
+        lastFocus = document.activeElement;
+        modal.hidden = false;
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+        modal.addEventListener('keydown', e => trap(e, modal));
+        (modal.querySelector('button[aria-label], .w3-button')||modal).focus();
+    }
+
+    function closeModal(id){
+        const modal = document.getElementById(id);
+        modal.hidden = true;
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+        modal.removeEventListener('keydown', trap);
+        if(lastFocus) lastFocus.focus();
+    }
+
+    document.getElementById('aiModal').addEventListener('click', e => {
+        if(e.target.id === 'aiModal') closeModal('aiModal');
+    });
+</script>
+</body>
+</html>
